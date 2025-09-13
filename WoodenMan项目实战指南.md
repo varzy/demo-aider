@@ -144,7 +144,7 @@ cd /Users/zy/Developer/demo-aider
 source venv/bin/activate
 
 # 使用 --config 指定配置，在 WoodenMan 目录执行
-cd /Users/zy/Developer/WoodenMan
+cd /Users/zy/Developer/WoodenMan &&
 python /Users/zy/Developer/demo-aider/venv/bin/python -m aider_automation.main "将 index.html 的背景色改为淡蓝色 (#e3f2fd)"
 ```
 

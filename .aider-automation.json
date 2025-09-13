@@ -8,7 +8,7 @@
       "--no-pretty",
       "--yes"
     ],
-    "model": "deepseek"
+    "model": "deepseek-chat"
   },
   "git": {
     "default_branch": "main",

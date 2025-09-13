@@ -5,7 +5,7 @@
   },
   "aider": {
     "options": ["--no-pretty", "--yes"],
-    "model": "gpt-4"
+    "model": "deepseek-chat"
   },
   "git": {
     "default_branch": "main",
