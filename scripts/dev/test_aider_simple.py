@@ -5,6 +5,7 @@
 
 import subprocess
 import os
+from pathlib import Path
 
 def test_aider():
     print("🔍 测试 aider 配置...")
@@ -49,9 +50,9 @@ def run_woodenman_task():
 
     print("\n🚀 执行 WoodenMan 任务...")
 
-    # 切换到 WoodenMan 目录
-    woodenman_path = "/Users/zy/Developer/WoodenMan"
-    os.chdir(woodenman_path)
+    # 切换到 WoodenMan 目录（支持环境变量 WOODENMAN_PATH）
+    woodenman_path = Path(os.environ.get("WOODENMAN_PATH", "/Users/zy/Developer/WoodenMan"))
+    os.chdir(str(woodenman_path))
 
     # 构建命令
     cmd = [

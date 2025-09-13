@@ -92,7 +92,7 @@ echo $GITHUB_TOKEN
 
 ```bash
 # 检查配置是否正确
-python check_setup.py
+python scripts/check_setup.py
 ```
 
 **预期输出：**

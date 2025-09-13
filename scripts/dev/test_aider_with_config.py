@@ -5,12 +5,14 @@
 
 import subprocess
 import os
+from pathlib import Path
 import json
 
 def test_aider_config():
     print("🔍 测试 aider 配置...")
 
-    config_path = "/Users/zy/Developer/demo-aider/.aider-automation.json"
+    project_root = Path(__file__).resolve().parents[2]
+    config_path = str(project_root / ".aider-automation.json")
 
     # 检查配置文件
     try:
@@ -55,12 +57,12 @@ def run_woodenman_task_with_automation():
     print("\n🚀 使用 aider-automation 执行 WoodenMan 任务...")
 
     # 切换到 WoodenMan 目录
-    woodenman_path = "/Users/zy/Developer/WoodenMan"
-    os.chdir(woodenman_path)
+    woodenman_path = Path(os.environ.get("WOODENMAN_PATH", "/Users/zy/Developer/WoodenMan"))
+    os.chdir(str(woodenman_path))
 
     # 使用 aider-automation
-    python_path = "/Users/zy/Developer/demo-aider/venv/bin/python"
-    config_path = "/Users/zy/Developer/demo-aider/.aider-automation.json"
+    python_path = str(project_root / "venv" / "bin" / "python")
+    config_path = str(project_root / ".aider-automation.json")
 
     cmd = [
         python_path,

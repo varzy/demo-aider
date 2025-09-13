@@ -111,6 +111,15 @@ def main():
 
     all_good = True
 
+    # 将工作目录切换到项目根目录，确保相对路径正确
+    project_root = Path(__file__).resolve().parents[1]
+    try:
+        os.chdir(str(project_root))
+        print(f"\n📂 已切换到项目根目录: {project_root}")
+    except Exception as e:
+        print(f"❌ 无法切换到项目根目录: {e}")
+        sys.exit(1)
+
     print("\n📁 文件检查:")
     all_good &= check_file_exists(".aider-automation.json", "配置文件")
 

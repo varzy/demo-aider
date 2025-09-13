@@ -1,14 +1,18 @@
 #!/bin/bash
 
 # WoodenMan 项目背景色修改任务执行脚本
-# 修复版本 - 解决命令格式问题
+# 修复版本 - 解决命令格式问题（动态解析路径）
 
 echo "🚀 WoodenMan 项目背景色修改任务"
 echo "=================================================="
 
-# 设置路径变量
-DEMO_AIDER_PATH="/Users/zy/Developer/demo-aider"
-WOODENMAN_PATH="/Users/zy/Developer/WoodenMan"
+# 解析项目根目录（scripts/dev/ 的上两级）
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+
+# 路径变量（支持通过环境变量覆盖）
+DEMO_AIDER_PATH="${DEMO_AIDER_PATH:-$PROJECT_ROOT}"
+WOODENMAN_PATH="${WOODENMAN_PATH:-/Users/zy/Developer/WoodenMan}"
 VENV_PYTHON="$DEMO_AIDER_PATH/venv/bin/python"
 CONFIG_FILE="$DEMO_AIDER_PATH/.aider-automation.json"
 
@@ -35,7 +39,7 @@ fi
 # 检查配置文件
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "❌ 错误: 配置文件不存在: $CONFIG_FILE"
-    echo "   请确保在 demo-aider 目录中有正确的配置文件"
+    echo "   请确保在项目根目录中有正确的配置文件"
     exit 1
 fi
 

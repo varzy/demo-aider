@@ -12,9 +12,10 @@ def main():
     print("🚀 开始执行 WoodenMan 项目背景色修改任务")
     print("=" * 50)
 
-    # 设置路径
-    demo_aider_path = Path("/Users/zy/Developer/demo-aider")
-    woodenman_path = Path("/Users/zy/Developer/WoodenMan")
+    # 项目根目录
+    demo_aider_path = Path(__file__).resolve().parents[1]
+    # 目标项目路径可通过环境变量覆盖
+    woodenman_path = Path(os.environ.get("WOODENMAN_PATH", "/Users/zy/Developer/WoodenMan"))
 
     # 检查路径是否存在
     if not demo_aider_path.exists():

@@ -173,7 +173,7 @@ pytest
 # 运行特定测试文件
 pytest tests/test_config.py
 
-# 生成覆盖率报告
+# 生成覆盖率报告（HTML 输出在 reports/htmlcov）
 pytest --cov=src/aider_automation --cov-report=html
 ```
 
