@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+src/aider_automation/__init__.py
+src/aider_automation/exceptions.py
+src/aider_automation/models.py
+src/aider_automation.egg-info/PKG-INFO
+src/aider_automation.egg-info/SOURCES.txt
+src/aider_automation.egg-info/dependency_links.txt
+src/aider_automation.egg-info/entry_points.txt
+src/aider_automation.egg-info/requires.txt
+src/aider_automation.egg-info/top_level.txt
+tests/test_exceptions.py
+tests/test_models.py

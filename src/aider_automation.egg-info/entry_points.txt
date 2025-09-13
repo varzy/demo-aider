@@ -1,0 +1,2 @@
+[console_scripts]
+aider-automation = aider_automation.main:cli

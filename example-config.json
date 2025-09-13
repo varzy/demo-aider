@@ -1,0 +1,19 @@
+{
+  "github": {
+    "token": "${GITHUB_TOKEN}",
+    "repo": "owner/repository-name"
+  },
+  "aider": {
+    "options": ["--no-pretty", "--yes"],
+    "model": "gpt-4"
+  },
+  "git": {
+    "default_branch": "main",
+    "branch_prefix": "aider-automation/"
+  },
+  "templates": {
+    "commit_message": "feat: {summary}",
+    "pr_title": "AI-generated changes: {summary}",
+    "pr_body": "## 自动生成的更改\n\n**提示词：** {prompt}\n\n**修改的文件：**\n{modified_files}\n\n**Aider 摘要：**\n{aider_summary}"
+  }
+}

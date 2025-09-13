@@ -1,0 +1,105 @@
+Metadata-Version: 2.4
+Name: aider-automation
+Version: 0.1.0
+Summary: 集成 aider、Git 和 GitHub API 的自动化脚本
+Author: Aider Automation Team
+License: MIT
+Project-URL: Homepage, https://github.com/aider-automation/aider-automation
+Project-URL: Repository, https://github.com/aider-automation/aider-automation
+Project-URL: Issues, https://github.com/aider-automation/aider-automation/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Tools
+Classifier: Topic :: Software Development :: Version Control :: Git
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: click>=8.0.0
+Requires-Dist: requests>=2.28.0
+Requires-Dist: GitPython>=3.1.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: rich>=13.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-mock>=3.10.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: responses>=0.23.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: isort>=5.12.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+
+# Aider Automation Script
+
+一个集成 aider、Git 和 GitHub API 的自动化脚本，可以在任意项目中使用。
+
+## 功能特性
+
+- 🤖 集成 aider AI 编程助手
+- 🔄 自动 Git 操作（分支创建、提交、推送）
+- 🚀 自动创建 GitHub Pull Request
+- ⚙️ 灵活的配置系统
+- 📝 详细的日志和错误处理
+- 🧪 完整的测试覆盖
+
+## 快速开始
+
+### 安装
+
+```bash
+pip install aider-automation
+```
+
+### 基本使用
+
+```bash
+# 在项目根目录运行
+aider-automation "添加用户认证功能"
+```
+
+### 配置
+
+在项目根目录创建 `.aider-automation.json` 配置文件：
+
+```json
+{
+  "github": {
+    "token": "${GITHUB_TOKEN}",
+    "repo": "owner/repository-name"
+  },
+  "aider": {
+    "options": ["--no-pretty", "--yes"],
+    "model": "gpt-4"
+  }
+}
+```
+
+## 开发
+
+### 安装开发依赖
+
+```bash
+pip install -e ".[dev]"
+```
+
+### 运行测试
+
+```bash
+pytest
+```
+
+### 代码格式化
+
+```bash
+black src tests
+isort src tests
+```
+
+## 许可证
+
+MIT License
