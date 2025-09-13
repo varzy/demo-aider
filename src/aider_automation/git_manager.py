@@ -167,12 +167,13 @@ class GitManager:
         except subprocess.SubprocessError as e:
             raise GitOperationError(f"Git 命令执行失败: {e}")
 
-    def commit_changes(self, message: str) -> str:
+    def commit_changes(self, message: str, allow_empty: bool = False) -> str:
         """
         提交更改
 
         Args:
             message: 提交信息
+            allow_empty: 是否允许空提交
 
         Returns:
             str: 提交哈希
@@ -187,8 +188,13 @@ class GitManager:
                     "请提供有意义的提交信息"
                 )
 
+            # 构建提交命令
+            commit_cmd = ["commit", "-m", message]
+            if allow_empty:
+                commit_cmd.append("--allow-empty")
+
             # 提交更改
-            result = self._run_git_command(["commit", "-m", message])
+            result = self._run_git_command(commit_cmd)
 
             if result.returncode != 0:
                 raise GitOperationError(

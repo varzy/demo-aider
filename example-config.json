@@ -5,7 +5,9 @@
   },
   "aider": {
     "options": ["--no-pretty", "--yes"],
-    "model": "deepseek-chat"
+    "model": "deepseek-chat",
+    "api_key": "${DEEPSEEK_API_KEY}",
+    "api_base": null
   },
   "git": {
     "default_branch": "main",

@@ -6,9 +6,11 @@
   "aider": {
     "options": [
       "--no-pretty",
-      "--yes"
+      "--yes",
+      "--api-key",
+      "deepseek=sk-967f84ada6b2448eba5a1e6b0a385e78"
     ],
-    "model": "deepseek-chat"
+    "model": "deepseek/deepseek-chat"
   },
   "git": {
     "default_branch": "main",

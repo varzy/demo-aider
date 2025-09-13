@@ -27,6 +27,8 @@ class AiderConfig(BaseModel):
     """Aider 配置"""
     options: List[str] = Field(default_factory=list, description="Aider 命令行选项")
     model: Optional[str] = Field(default=None, description="Aider 使用的模型")
+    api_key: Optional[str] = Field(default=None, description="模型 API Key (如 DEEPSEEK_API_KEY)")
+    api_base: Optional[str] = Field(default=None, description="API 基础 URL (可选)")
 
 
 class GitConfig(BaseModel):

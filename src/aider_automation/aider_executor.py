@@ -1,5 +1,6 @@
 """Aider 执行器"""
 
+import os
 import subprocess
 import re
 from typing import List, Optional

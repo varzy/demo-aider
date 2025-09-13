@@ -201,11 +201,29 @@ class AiderAutomationWorkflow:
         # 检查是否有更改
         if not self.git_manager.has_changes():
             self.logger.warning("没有检测到文件更改")
-            # 创建一个空提交以保持工作流程一致性
+
+            # 检查是否 aider 已经自动提交了更改
+            # 获取最近的提交信息来验证
+            try:
+                result = self.git_manager._run_git_command(["log", "-1", "--oneline"])
+                if result.returncode == 0 and result.stdout.strip():
+                    recent_commit = result.stdout.strip()
+                    self.logger.info(f"检测到最近的提交: {recent_commit}")
+
+                    # 获取最近提交的哈希
+                    hash_result = self.git_manager._run_git_command(["rev-parse", "HEAD"])
+                    if hash_result.returncode == 0:
+                        commit_hash = hash_result.stdout.strip()
+                        self.logger.info("Aider 可能已经自动提交了更改")
+                        return commit_hash
+            except Exception as e:
+                self.logger.debug(f"检查最近提交时出错: {e}")
+
+            # 如果没有找到最近的提交，创建一个空提交
             commit_message = self.config.templates.commit_message.format(
                 summary="空提交 - 无文件更改"
             )
-            return self.git_manager.commit_changes(commit_message + " --allow-empty")
+            return self.git_manager.commit_changes(commit_message, allow_empty=True)
 
         # 添加所有更改
         self.git_manager.add_all_changes()
