@@ -1,0 +1,22 @@
+{
+  "github": {
+    "token": "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",
+    "repo": "allen0125/WoodenMan"
+  },
+  "aider": {
+    "options": [
+      "--no-pretty",
+      "--yes"
+    ],
+    "model": "deepseek"
+  },
+  "git": {
+    "default_branch": "main",
+    "branch_prefix": "aider-automation/"
+  },
+  "templates": {
+    "commit_message": "feat: {summary}",
+    "pr_title": "AI-generated changes: {summary}",
+    "pr_body": "## 自动生成的更改\n\n**提示词：** {prompt}\n\n**修改的文件：**\n{modified_files}\n\n**Aider 摘要：**\n{aider_summary}"
+  }
+}
